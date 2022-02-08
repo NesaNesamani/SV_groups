@@ -1338,6 +1338,10 @@ select {
 }
 
 @media (max-width: 420px) {
+  #about {
+    margin-top: 10px;
+  }
+
   .mobileverifysetup {
     width: 96% !important;
   }
@@ -1656,7 +1660,7 @@ select {
 
 .modalformcustomfooter {
   display: flex;
-  padding: 20px;
+  padding: 20px 0;
   border-top: 1px solid #dee2e6;
   margin-top: 10px;
 }
@@ -1797,4 +1801,13 @@ select {
 
 #mobileverfication-modal {
   background: #000000bd;
+}
+
+.btn-outline-info {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.btn-outline-success {
+  margin-right: 5px;
 }

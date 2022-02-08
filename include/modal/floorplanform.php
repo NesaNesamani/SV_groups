@@ -9,50 +9,43 @@
                     </div>
                     <div class="modal-body">
                         <form id="floorplanform" class="modal-form">
-                           <input 
-                           class="form-control" 
-                           type="text" 
-                           placeholder="Your Name *" 
-                           name="floorplan_yourname" 
-                           id="floorplan_yourname"
-                           >
-                        
-                           <input 
-                           class="form-control" 
-                           type="text" 
-                           placeholder="Your Email *" 
-                           name="floorplan_emailaddress"
-                           id="floorplan_emailaddress"
-                           >
+                            <input 
+                            class="form-control" 
+                            type="text" 
+                            placeholder="Your Name *" 
+                            name="floorplan_yourname" 
+                            id="floorplan_yourname"
+                            >
+                            
+                            <input 
+                            class="form-control" 
+                            type="text" 
+                            placeholder="Your Email *" 
+                            name="floorplan_emailaddress"
+                            id="floorplan_emailaddress"
+                            >
 
-                           <input 
-                           class="form-control" 
-                           type="number" 
-                           placeholder="Mobile Number *" 
-                           name="floorplan_mobilenumber"
-                           id="floorplan_mobilenumber"
-                           >
-                        
-                           <textarea
-                           style="display:none"
-                           class="form-control" 
-                           placeholder="Your description" 
-                           name="floorplan_description"
-                           id="floorplan_description"
-                           >ABCDEF</textarea>
+                            <input 
+                            class="form-control" 
+                            type="number" 
+                            placeholder="Mobile Number *" 
+                            name="floorplan_mobilenumber"
+                            id="floorplan_mobilenumber"
+                            >
+                            
+                            <textarea
+                            style="display:none"
+                            class="form-control" 
+                            placeholder="Your description" 
+                            name="floorplan_description"
+                            id="floorplan_description"
+                            >ABCDEF</textarea>
 
                             <p style="margin:5px 0px 5px 2px">Floor plan</p>
                             <input class="radio" type="radio" id="2bhk" name="floorplan" value="2bhk">2BHK
                             <input class="radio" type="radio" id="3bhk" name="floorplan" value="3bhk">3BHK
 
-                           <!-- <div 
-                           class="g-recaptcha"
-                           data-sitekey="6LeCkMUdAAAAAOly8h1e4t4oIRlDODXWbBM5iUJ4"
-                           data-callback="floorplanRecaptcha"
-                           >
-                        </div> -->
-                        <input type="hidden" name="floorplanRecaptcha" id="floorplanRecaptcha" value="">
-
+                        <!-- <input type="hidden" name="floorplanRecaptcha" id="floorplanRecaptcha" value=""> -->
 
                         <div class="modalformcustomfooter just-cont-space-start">
                         <button  style="margin-right: 5px;" type="submit" id="floorplan_submitbtn" class="btn btn-outline-warning" style="">submit</button>
