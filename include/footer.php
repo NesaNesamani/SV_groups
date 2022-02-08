@@ -129,6 +129,3 @@ include ('./include/modal/enquiryform.php');
         </div>
     </footer>
 
-<script>
-document.location = "#";
-</script>

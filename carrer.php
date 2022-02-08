@@ -99,5 +99,11 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- javascript -->
     
+    <script>
+        $(document).ready(function(){
+            $(this).scrollTop(0);
+        });
+    </script>
+    
   </body>
 </html>

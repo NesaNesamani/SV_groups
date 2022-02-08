@@ -1794,3 +1794,7 @@ select {
   width: 580px;
   max-width: unset !important;
 }
+
+#mobileverfication-modal {
+  background: #000000bd;
+}
