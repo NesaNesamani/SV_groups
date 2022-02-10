@@ -1,3 +1,5 @@
+var statuscode;
+
 //FORM VALIDATION START
 $.validator.methods.email = function( value, element ) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
@@ -56,7 +58,13 @@ $("#careerform").submit(function(e) {
     },  
     submitHandler: function(){
       hideVerificationloadbtn();
-      sendOtp();
+
+      if($('#career_mobilenumber').val() == sessionStorage.getItem('verifiedmobilenumber')){
+        callApicall();
+      }else{
+        sendOtp(); 
+      }
+
     }
   });
 
@@ -78,14 +86,19 @@ $("#careerform").submit(function(e) {
   },3000);
   
 
-  let statuscode = "";
+  
 
-  document.getElementById("submitotp").addEventListener("click",function() {
+  document.getElementById("submitotp").addEventListener("click",function(e) {
+    
+    if(window.location.href.includes("career.php") && !document.querySelector("#form-modal").classList.contains("show")){
+
 
     document.getElementById("otpnotification").innerHTML="";
 
     let otp_input = document.getElementById("otp_input").value;
     let formData = { statuscode,otp_input };
+
+    console.log("verify2");
 
     $.ajax({
       url: 'backend/api.php?verifyotp=true',
@@ -106,9 +119,14 @@ $("#careerform").submit(function(e) {
       }
     });
     
+    };
   });
 
-  document.getElementById("resendotp").addEventListener("click",function() {
+  document.getElementById("resendotp").addEventListener("click",function(e) {
+    
+    if(window.location.href.includes("career.php") && !document.querySelector("#form-modal").classList.contains("show")){
+      
+    
 
     document.getElementById("otpnotification").innerHTML="";
 
@@ -136,6 +154,7 @@ $("#careerform").submit(function(e) {
       }
     });
 
+  };
   });
 
   function sendOtp(){
@@ -185,11 +204,13 @@ function hideVerificationloadbtn(){
     document.getElementById("otpnotification").innerHTML="";
     document.getElementById("otp_input").value="";
     hideVerificationloadbtn();
-    $('#mobileverfication-modal').modal('toggle');
+    $('#mobileverfication-modal').modal('hide');
   }
 
-  document.getElementById("cancelmobileverification").addEventListener("click",function() {
-    hideModal();
+  document.getElementById("cancelmobileverification").addEventListener("click",function(e) {
+    if(window.location.href.includes("career.php") && !document.querySelector("#form-modal").classList.contains("show")){
+      hideModal();
+    };
   });
   
   
@@ -208,6 +229,8 @@ function hideVerificationloadbtn(){
     formData.append("career_position", $('#career_position').val());
     formData.append("resume", file,"resume.pdf");
 
+    sessionStorage.setItem('verifiedmobilenumber',$('#career_mobilenumber').val());
+    
     //Button load
     // document.getElementById("cancelmobileverification").disabled = true;
     
@@ -220,8 +243,8 @@ function hideVerificationloadbtn(){
       method: 'POST',
       type: 'POST',
       success: function(data){
+        alert("Form Submitted");
         console.log("SAVE FORM SUCCESS");
-        console.log(data);
         document.getElementById("careerform").reset();
         document.getElementById("otpnotification").innerHTML="Form submitted";
         setTimeout(function() {

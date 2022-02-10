@@ -237,6 +237,8 @@ select {
 
 .history-img {
   margin-left: 80px;
+  height: 355px !important;
+  float: right;
 }
 
 .signature {

@@ -1,3 +1,4 @@
+var statuscode;
 //FORM VALIDATION START
 $.validator.methods.email = function( value, element ) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
@@ -54,7 +55,11 @@ $( "#contactusform" ).submit(function(e) {
     },  
     submitHandler: function(){
       hideVerificationloadbtn();
-      sendOtp();
+      if($('#contact_mobilenumber').val() == sessionStorage.getItem('verifiedmobilenumber')){
+        callApicall();
+      }else{
+        sendOtp();
+      }
     }
 });
 
@@ -77,63 +82,72 @@ function contactRecaptcha(contactRecaptcha) {
   },3000);
   
 
-  let statuscode = "";
+  document.getElementById("submitotp").addEventListener("click",function(e) {
+    
+    if(window.location.href.includes("contact-us.php") && !document.querySelector("#form-modal").classList.contains("show")){
+      
+      document.getElementById("otpnotification").innerHTML="";
 
-  document.getElementById("submitotp").addEventListener("click",function() {
-
-    document.getElementById("otpnotification").innerHTML="";
-
-    let otp_input = document.getElementById("otp_input").value;
-    let formData = { statuscode,otp_input };
-
-    $.ajax({
-      url: 'backend/api.php?verifyotp=true',
-      data: formData,
-      method: 'POST',
-      type: 'POST',
-      success: function(data){
-        let { Status , Details } = JSON.parse(data);
-        if(Status == "Success"){
-          callApicall();
-        }else{
-          document.getElementById("otpnotification").innerHTML=Details;
+      let otp_input = document.getElementById("otp_input").value;
+      let formData = { statuscode,otp_input };
+      console.log("verify3");
+      $.ajax({
+        url: 'backend/api.php?verifyotp=true',
+        data: formData,
+        method: 'POST',
+        type: 'POST',
+        success: function(data){
+          let { Status , Details } = JSON.parse(data);
+          if(Status == "Success"){
+            callApicall();
+          }else{
+            document.getElementById("otpnotification").innerHTML=Details;
+          }
+        },
+        error: function(data) {
+          console.log("SUBMIT FAILURE");
+          console.log(data);
         }
-      },
-      error: function(data) {
-        console.log("SUBMIT FAILURE");
-        console.log(data);
-      }
-    });
+      });
+
+    };
     
   });
 
-  document.getElementById("resendotp").addEventListener("click",function() {
+  document.getElementById("resendotp").addEventListener("click",function(e) {
+    
+    if(window.location.href.includes("contact-us.php") && !document.querySelector("#form-modal").classList.contains("show")){
+      
 
-    document.getElementById("otpnotification").innerHTML="";
+      document.getElementById("otpnotification").innerHTML="";
 
-    let mobilenumber = $('#contact_mobilenumber').val();
-    let formData = { mobilenumber };
-
-    $.ajax({
-      url: 'backend/api.php?sendotptouser=true',
-      data: formData,
-      method: 'POST',
-      type: 'POST',
-      success: function(data){
-        let { Status , Details } = JSON.parse(data);
-        if(Status == "Success"){
-          statuscode = Details;
-          document.getElementById("otpnotification").innerHTML="OTP re-sent successfull";
-        }else{
-          statuscode = "";
-          document.getElementById("otpnotification").innerHTML=Details;
+      let mobilenumber = $('#contact_mobilenumber').val();
+      let formData = { mobilenumber };
+  
+      $.ajax({
+        url: 'backend/api.php?sendotptouser=true',
+        data: formData,
+        method: 'POST',
+        type: 'POST',
+        success: function(data){
+          let { Status , Details } = JSON.parse(data);
+          if(Status == "Success"){
+            statuscode = Details;
+            document.getElementById("otpnotification").innerHTML="OTP re-sent successfull";
+          }else{
+            statuscode = "";
+            document.getElementById("otpnotification").innerHTML=Details;
+          }
+        },
+        error: function(data) {
+          console.log("SEND OTP TO USER FAILURE");
+          console.log(data);
         }
-      },
-      error: function(data) {
-        console.log("SEND OTP TO USER FAILURE");
-        console.log(data);
-      }
-    });
+      });
+
+    };
+
+  
 
   });
 
@@ -184,11 +198,13 @@ function hideVerificationloadbtn(){
     document.getElementById("otpnotification").innerHTML="";
     document.getElementById("otp_input").value="";
     hideVerificationloadbtn();
-    $('#mobileverfication-modal').modal('toggle');
+    $('#mobileverfication-modal').modal('hide');
   }
 
-  document.getElementById("cancelmobileverification").addEventListener("click",function() {
-    hideModal();
+  document.getElementById("cancelmobileverification").addEventListener("click",function(e) {
+    if(window.location.href.includes("contact-us.php") && !document.querySelector("#form-modal").classList.contains("show")){
+      hideModal();
+    };
   });
   
   
@@ -203,12 +219,15 @@ function hideVerificationloadbtn(){
   
     let fordata = { yourname,mobilenumber,emailaddress,description };
     
+    sessionStorage.setItem('verifiedmobilenumber',mobilenumber);
+
      $.ajax({
       url: 'backend/enquirymail.php',
       data: fordata,
       method: 'GET',
       type: 'GET',
       success: function(data){
+        alert("Form Submitted");
         console.log("SAVE FORM SUCCESS");
         console.log(data);
         document.getElementById("contactusform").reset();
