@@ -29,7 +29,7 @@
         <div class="container py-5">
             <div class="row d-flex align-items-center">
               <div class="col-lg-6 col-12">
-                <h2 class="mb-sm-5">Quality & Passion With Our Services</h2>
+                <h2 >Quality & Passion With Our Services</h2>
                 <h4 class="mb-2">Departure performed exquisite</h4>
                 <p class="mb-3 ">
                   SV GROUPS is active in the development of key sectors such as
@@ -193,7 +193,7 @@
                         <div class="side_block mb-3">
                             <div>
                                 <h3>SV Housing</h3>
-                                <p>SV Housing, with in the realty industry, was established with the prime focus of developing next generation ...</p>
+                                <p>With in the realty industry, was established with the prime focus of developing next generation ...</p>
                                 <a href="./about.php">
                                     <button class="btn-carrer btn">
                                         <svg width="21" height="12" viewBox="0 0 21 12" xmlns="http://www.w3.org/2000/svg">
@@ -209,7 +209,7 @@
                         <div class="side_block">
                             <div>
                                 <h3>AATHAVA Food Products</h3>
-                                <p>Aathava Food Products Pvt Ltd is the leading manufacturer and distributor of mango pulp and guava pulp....</p>
+                                <p>The leading manufacturer and distributor of mango pulp and guava pulp....</p>
                                 <a href="http://www.aathavafood.com/">
                                     <button class="btn-carrer btn">
                                         <svg width="21" height="12" viewBox="0 0 21 12" xmlns="http://www.w3.org/2000/svg">

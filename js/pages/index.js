@@ -1,3 +1,5 @@
+var statuscode;
+
 $.validator.methods.email = function( value, element ) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
 }
@@ -53,13 +55,15 @@ $( "#exploreform" ).validate({
       //Button load
       document.getElementById("explornow_submitbtn").disabled = true;
       document.getElementById("explornow_submitbtn").innerHTML = "Loading ..."; 
-      
+      sessionStorage.setItem('verifiedmobilenumber',mobilenumber);
+
       $.ajax({
         url: 'backend/enquirymail.php',
         data: fordata,
         method: 'GET',
         type: 'GET',
         success: function(SUCCESDATA){
+            alert("Form Submitted");
             document.getElementById("exploreform").reset();
             document.getElementById("explornow_submitbtn").disabled = false;
             document.getElementById("explornow_submitbtn").innerHTML = "Submit"; 
@@ -133,7 +137,12 @@ $( "#exploreform" ).validate({
     submitHandler: function(form){
 
         hideVerificationloadbtn();
-        sendOtp();
+
+        if($('#floorplan_mobilenumber').val() == sessionStorage.getItem('verifiedmobilenumber')){
+          callFloorapi();
+        }else{
+          sendOtp(); 
+        }
 
     }
   });
@@ -200,7 +209,12 @@ $( "#broucherform" ).submit(function(e) {
   submitHandler: function(form){
 
     hideVerificationloadbtn();
-    sendOtp();
+    
+    if($('#broucherform_mobilenumber').val() == sessionStorage.getItem('verifiedmobilenumber')){
+      callBroucherapi();
+    }else{
+      sendOtp(); 
+    }
 
   }
 });
@@ -224,14 +238,17 @@ setTimeout(function() {
 },3000);
 
 
-let statuscode = "";
-
-document.getElementById("submitotp").addEventListener("click",function() {
+document.getElementById("submitotp").addEventListener("click",function(e) {
+  if(window.location.href.includes("index.php") && !document.querySelector("#form-modal").classList.contains("show")){
 
   document.getElementById("otpnotification").innerHTML="";
 
   let otp_input = document.getElementById("otp_input").value;
   let formData = { statuscode,otp_input };
+
+  console.log(window.location.href.includes("index.php"));
+  console.log(!document.querySelector("#form-modal").classList.contains("show"));
+  console.log("verify4");
 
   $.ajax({
     url: 'backend/api.php?verifyotp=true',
@@ -258,43 +275,48 @@ document.getElementById("submitotp").addEventListener("click",function() {
     }
   });
   
+  };
 });
 
-document.getElementById("resendotp").addEventListener("click",function() {
-
-  document.getElementById("otpnotification").innerHTML="";
-
-  let mobilenumber="";
-
-  if($('#broucherform-modal').hasClass('show')){
-      mobilenumber = $('#broucherform_mobilenumber').val();
-  }else{
-      mobilenumber = $('#floorplan_mobilenumber').val();
-  }
+document.getElementById("resendotp").addEventListener("click",function(e) {
   
+  if(window.location.href.includes("index.php") && !document.querySelector("#form-modal").classList.contains("show")){
+    
+    document.getElementById("otpnotification").innerHTML="";
 
-  let formData = { mobilenumber };
-
-  $.ajax({
-    url: 'backend/api.php?sendotptouser=true',
-    data: formData,
-    method: 'POST',
-    type: 'POST',
-    success: function(data){
-      let { Status , Details } = JSON.parse(data);
-      if(Status == "Success"){
-        statuscode = Details;
-        document.getElementById("otpnotification").innerHTML="OTP re-sent successfull";
-      }else{
-        statuscode = "";
-        document.getElementById("otpnotification").innerHTML=Details;
-      }
-    },
-    error: function(data) {
-      console.log("SEND OTP TO USER FAILURE");
-      console.log(data);
+    let mobilenumber="";
+  
+    if($('#broucherform-modal').hasClass('show')){
+        mobilenumber = $('#broucherform_mobilenumber').val();
+    }else{
+        mobilenumber = $('#floorplan_mobilenumber').val();
     }
-  });
+    
+  
+    let formData = { mobilenumber };
+  
+    $.ajax({
+      url: 'backend/api.php?sendotptouser=true',
+      data: formData,
+      method: 'POST',
+      type: 'POST',
+      success: function(data){
+        let { Status , Details } = JSON.parse(data);
+        if(Status == "Success"){
+          statuscode = Details;
+          document.getElementById("otpnotification").innerHTML="OTP re-sent successfull";
+        }else{
+          statuscode = "";
+          document.getElementById("otpnotification").innerHTML=Details;
+        }
+      },
+      error: function(data) {
+        console.log("SEND OTP TO USER FAILURE");
+        console.log(data);
+      }
+    });
+
+  };
 
 });
 
@@ -352,11 +374,13 @@ function hideModal(){
   document.getElementById("otpnotification").innerHTML="";
   document.getElementById("otp_input").value="";
   hideVerificationloadbtn();
-  $('#mobileverfication-modal').modal('toggle');
+  $('#mobileverfication-modal').modal('hide');
 }
 
-document.getElementById("cancelmobileverification").addEventListener("click",function() {
-  hideModal();
+document.getElementById("cancelmobileverification").addEventListener("click",function(e) {
+  if(window.location.href.includes("index.php") && !document.querySelector("#form-modal").classList.contains("show")){
+    hideModal();
+  };
 });
 
 
@@ -373,19 +397,20 @@ function callBroucherapi() {
 
   //Button load
   document.getElementById("broucher_submitbtn").disabled = true;
-  document.getElementById("broucher_submitbtn").innerHTML = "Loading ..."; 
-  
+  document.getElementById("broucher_submitbtn").innerHTML = "Loading ...";
+  sessionStorage.setItem('verifiedmobilenumber', mobilenumber);
+
    $.ajax({
-      url: 'backend/brouchermail.php',
+    url: 'backend/brouchermail.php',
     data: fordata,
     method: 'GET',
     type: 'GET',
     success: function(data){
-      $('#broucherform-modal').modal('toggle');
+      $('#broucherform-modal').modal('hide');
       document.getElementById("broucherform").reset();
       document.getElementById("broucher_submitbtn").disabled = false;
       document.getElementById("broucher_submitbtn").innerHTML = "Submit"; 
-      
+      alert("Form Submitted");
        //After mail sent
        let filepath = './asset/brochure.pdf';
        window.open(filepath, '_blank');
@@ -423,15 +448,16 @@ function callFloorapi() {
   //Button load
   document.getElementById("floorplan_submitbtn").disabled = true;
   document.getElementById("floorplan_submitbtn").innerHTML = "Loading ..."; 
-  
+  sessionStorage.setItem('verifiedmobilenumber', floorplan_mobilenumber);
+
    $.ajax({
     url: 'backend/floorplanmail.php',
     data: fordata,
     method: 'GET',
     type: 'GET',
     success: function(data){
-      
-      $('#floorplanform-modal').modal('toggle');
+      alert("Form Submitted");
+      $('#floorplanform-modal').modal('hide');
       document.getElementById("floorplanform").reset();
       document.getElementById("floorplan_submitbtn").disabled = false;
       document.getElementById("floorplan_submitbtn").innerHTML = "Submit"; 
