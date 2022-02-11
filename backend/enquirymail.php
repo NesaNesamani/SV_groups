@@ -28,6 +28,7 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = $smtpconfig->Port;
 
 $mail->SetFrom('svgrandur@svgroups.in', 'SV Groups');
+$mail->addAddress('keerthi@vgts.tech', 'Keerthi');
 $mail->Subject = 'Enquiry Mail';
 $mail->Body=
         "<!DOCTYPE html>
