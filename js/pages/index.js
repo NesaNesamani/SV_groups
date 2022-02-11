@@ -239,14 +239,13 @@ setTimeout(function() {
 
 
 document.getElementById("submitotp").addEventListener("click",function(e) {
-  if(window.location.href.includes("index.php") && !document.querySelector("#form-modal").classList.contains("show")){
+  if((window.location.href.includes("index.php") || !window.location.href.includes(".php")) && !document.querySelector("#form-modal").classList.contains("show")){
 
   document.getElementById("otpnotification").innerHTML="";
 
   let otp_input = document.getElementById("otp_input").value;
   let formData = { statuscode,otp_input };
 
-  console.log(window.location.href.includes("index.php"));
   console.log(!document.querySelector("#form-modal").classList.contains("show"));
   console.log("verify4");
 
@@ -280,7 +279,7 @@ document.getElementById("submitotp").addEventListener("click",function(e) {
 
 document.getElementById("resendotp").addEventListener("click",function(e) {
   
-  if(window.location.href.includes("index.php") && !document.querySelector("#form-modal").classList.contains("show")){
+  if((window.location.href.includes("index.php") || !window.location.href.includes(".php")) && !document.querySelector("#form-modal").classList.contains("show")){
     
     document.getElementById("otpnotification").innerHTML="";
 
@@ -377,8 +376,9 @@ function hideModal(){
   $('#mobileverfication-modal').modal('hide');
 }
 
+
 document.getElementById("cancelmobileverification").addEventListener("click",function(e) {
-  if(window.location.href.includes("index.php") && !document.querySelector("#form-modal").classList.contains("show")){
+  if((window.location.href.includes("index.php") || !window.location.href.includes(".php")) && !document.querySelector("#form-modal").classList.contains("show")){
     hideModal();
   };
 });

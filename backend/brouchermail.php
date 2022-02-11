@@ -18,7 +18,6 @@ try {
 $name = $_REQUEST['yourname'];
 $mobile = $_REQUEST['mobilenumber'];
 $email = $_REQUEST['emailaddress'];
-$content = $_REQUEST['description'];
 //HTTP Request parse end
 
 $mail->isSMTP(); 
