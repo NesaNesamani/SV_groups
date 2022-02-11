@@ -8,3 +8,10 @@ Contact us form - works as expected
 Enquire Form - works as expected
 
 3)career.php [need load btn]
+Career form - works as expected
+Enquire Form - works as expected
+
+4)Project page 
+Broucher from - 
+Floor form - 
+Enquire Form - 
