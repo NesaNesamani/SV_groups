@@ -321,7 +321,7 @@
                             <div class="side_block">
                                 <div>
                                     <h3>SV Housing</h3>
-                                    <p>SV Housing, with in the realty industry, was established with the prime focus of developing next generation ...</p>
+                                    <p>With in the realty industry, was established with the prime focus of developing next generation ...</p>
                                     <a href="./about.php">
                                         <button class="btn-carrer btn">
                                             <svg width="21" height="12" viewBox="0 0 21 12" xmlns="http://www.w3.org/2000/svg">
@@ -340,7 +340,7 @@
                     <div class="side_block">
                                 <div>
                                     <h3>AATHAVA Food Products</h3>
-                                    <p>Aathava Food Products Pvt Ltd is the leading manufacturer and distributor of mango pulp and guava pulp....</p>
+                                    <p>The leading manufacturer and distributor of mango pulp and guava pulp....</p>
                                     <a href="http://www.aathavafood.com/">
                                         <button class="btn-carrer btn">
                                             <svg width="21" height="12" viewBox="0 0 21 12" xmlns="http://www.w3.org/2000/svg">
