@@ -86,6 +86,16 @@ $("#careerform").submit(function(e) {
   },3000);
   
 
+  function hide_careerpage_btn_load(){
+    document.getElementById("careerbtn_load").style.display = "none";
+    document.getElementById("careerbtn").style.display = "block";
+  }
+  hide_careerpage_btn_load();
+  
+  function show_careerpage_btn_load(){
+    document.getElementById("careerbtn").style.display = "none";
+    document.getElementById("careerbtn_load").style.display = "block";
+  }
   
 
   document.getElementById("submitotp").addEventListener("click",function(e) {
@@ -221,6 +231,7 @@ function hideVerificationloadbtn(){
   function callApicall() {
 
     showVerificationloadbtn();
+    show_careerpage_btn_load();
 
     var formData = new FormData();
 
@@ -247,6 +258,7 @@ function hideVerificationloadbtn(){
       method: 'POST',
       type: 'POST',
       success: function(data){
+        hide_careerpage_btn_load();
         alert("Form Submitted");
         console.log("SAVE FORM SUCCESS");
         document.getElementById("careerform").reset();
@@ -256,6 +268,7 @@ function hideVerificationloadbtn(){
         },2000);
       },
       error: function(data) {
+        hide_careerpage_btn_load();
         hideVerificationloadbtn();
         console.log("OTP FAILURE");
         console.log(data);

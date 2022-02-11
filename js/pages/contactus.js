@@ -81,6 +81,16 @@ function contactRecaptcha(contactRecaptcha) {
     MobileModalStatis()
   },3000);
   
+  function hide_contactpage_btn_load(){
+    document.getElementById("contactbtn_load").style.display = "none";
+    document.getElementById("contactbtn").style.display = "block";
+  }
+  hide_contactpage_btn_load();
+  
+  function show_contactpage_btn_load(){
+    document.getElementById("contactbtn").style.display = "none";
+    document.getElementById("contactbtn_load").style.display = "block";
+  }
 
   document.getElementById("submitotp").addEventListener("click",function(e) {
     
@@ -210,6 +220,7 @@ function hideVerificationloadbtn(){
   
   function callApicall() {
     
+    show_contactpage_btn_load();
     showVerificationloadbtn();
     
     let yourname = $('#contact_yourname').val();
@@ -227,6 +238,7 @@ function hideVerificationloadbtn(){
       method: 'GET',
       type: 'GET',
       success: function(data){
+        hide_contactpage_btn_load();
         alert("Form Submitted");
         console.log("SAVE FORM SUCCESS");
         console.log(data);
@@ -237,6 +249,7 @@ function hideVerificationloadbtn(){
         },2000);
       },
       error: function(data) {
+        hide_contactpage_btn_load();
         hideVerificationloadbtn();
         console.log("OTP FAILURE");
         console.log(data);
