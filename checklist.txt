@@ -12,6 +12,6 @@ Career form - works as expected
 Enquire Form - works as expected
 
 4)Project page 
-Broucher from - 
-Floor form - 
-Enquire Form - 
+Broucher from - works as expected
+Floor form - works as expected
+Enquire Form - works as expected
