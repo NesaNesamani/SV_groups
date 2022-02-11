@@ -90,44 +90,46 @@ $("#careerform").submit(function(e) {
 
   document.getElementById("submitotp").addEventListener("click",function(e) {
     
-    if(window.location.href.includes("career.php") && !document.querySelector("#form-modal").classList.contains("show")){
+    let pagevalue = window.location.href.includes('carrer.php');
+    let isEnquiryopen = document.querySelector("#form-modal").classList.contains("show");
+    if(pagevalue && !isEnquiryopen){
 
+      document.getElementById("otpnotification").innerHTML="";
 
-    document.getElementById("otpnotification").innerHTML="";
+      let otp_input = document.getElementById("otp_input").value;
+      let formData = { statuscode,otp_input };
 
-    let otp_input = document.getElementById("otp_input").value;
-    let formData = { statuscode,otp_input };
+      console.log("verify2");
 
-    console.log("verify2");
-
-    $.ajax({
-      url: 'backend/api.php?verifyotp=true',
-      data: formData,
-      method: 'POST',
-      type: 'POST',
-      success: function(data){
-        let { Status , Details } = JSON.parse(data);
-        if(Status == "Success"){
-          callApicall();
-        }else{
-          document.getElementById("otpnotification").innerHTML=Details;
+      $.ajax({
+        url: 'backend/api.php?verifyotp=true',
+        data: formData,
+        method: 'POST',
+        type: 'POST',
+        success: function(data){
+          let { Status , Details } = JSON.parse(data);
+          if(Status == "Success"){
+            callApicall();
+          }else{
+            document.getElementById("otpnotification").innerHTML=Details;
+          }
+        },
+        error: function(data) {
+          console.log("SUBMIT FAILURE");
+          console.log(data);
         }
-      },
-      error: function(data) {
-        console.log("SUBMIT FAILURE");
-        console.log(data);
-      }
-    });
-    
+      });
+      
     };
   });
 
   document.getElementById("resendotp").addEventListener("click",function(e) {
     
-    if(window.location.href.includes("career.php") && !document.querySelector("#form-modal").classList.contains("show")){
+    let pagevalue = window.location.href.includes('carrer.php');
+    let isEnquiryopen = document.querySelector("#form-modal").classList.contains("show");
+    if(pagevalue && !isEnquiryopen){
       
-    
-
+  
     document.getElementById("otpnotification").innerHTML="";
 
     let mobilenumber = $('#career_mobilenumber').val();
@@ -208,7 +210,9 @@ function hideVerificationloadbtn(){
   }
 
   document.getElementById("cancelmobileverification").addEventListener("click",function(e) {
-    if(window.location.href.includes("career.php") && !document.querySelector("#form-modal").classList.contains("show")){
+    let pagevalue = window.location.href.includes('carrer.php');
+    let isEnquiryopen = document.querySelector("#form-modal").classList.contains("show");
+    if(pagevalue && !isEnquiryopen){
       hideModal();
     };
   });

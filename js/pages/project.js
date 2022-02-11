@@ -151,8 +151,6 @@ setTimeout(function() {
 },3000);
 
 
-let statuscode = "";
-
 document.getElementById("submitotp").addEventListener("click",function(e) {
   if(window.location.href.includes("project.php") && !document.querySelector("#form-modal").classList.contains("show")){
     document.getElementById("otpnotification").innerHTML="";

@@ -3,6 +3,15 @@ Broucher from - works as expected
 Floor form - works as expected
 Enquire Form - works as expected
 
-2)
+2)contact-us.php  [need load btn]
+Contact us form - works as expected
+Enquire Form - works as expected
 
-Index page (Broucher from,Floor form,Enquire Form)
+3)career.php [need load btn]
+Career form - works as expected
+Enquire Form - works as expected
+
+4)Project page 
+Broucher from - 
+Floor form - 
+Enquire Form - 
