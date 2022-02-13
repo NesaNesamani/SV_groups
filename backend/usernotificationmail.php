@@ -55,7 +55,7 @@ $tobody = "<!DOCTYPE html>
 
 <pre>
 Dear Mr. / Mrs. ".$toname.",
-We would like to express our thanks for your interest in our apartment.
+We would like to express our thanks for your interest in our organization.
 
 Yours sincerely,
 SV Groups
