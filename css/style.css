@@ -880,6 +880,10 @@ select {
   transition: all 0.5s ease;
 }
 
+.card_info {
+  cursor: pointer;
+}
+
 .card_info .icon {
   fill: #e5e5e5;
 }
