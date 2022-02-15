@@ -374,7 +374,7 @@ function callFloorapi() {
       document.getElementById("floorplan_submitbtn").innerHTML = "Submit"; 
 
       if(twobhk) {
-          window.open("./asset/2BHK.zip", '_blank');
+          window.open("./asset/2BHKFILE.pdf", '_blank');
       } else {
           window.open("./asset/3BHK.zip", '_blank');
       }

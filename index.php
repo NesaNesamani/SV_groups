@@ -114,7 +114,7 @@
                 </div>
                 <div class="about-2">
                     <div class="row">
-                        <div class="col-sm-3 col-6">
+                        <div class="col-sm-3 col-6" id="masterPlanopenBtn">
                             <article class="card">
                                 <div class="card_img"></div>
                                 <div class="card_info">
@@ -125,7 +125,7 @@
                                         </path>
                                     </svg>
                                     <h3 class="card_title">Master Plan</h3>
-                                    <button class="card_btn" id="masterPlanopenBtn">
+                                    <button class="card_btn" >
                                         <svg width="18" height="10" viewBox="0 0 21 12"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path d="M15 6.75H0V5.25H15V0L21 6L15 12V6.75Z" />
@@ -136,6 +136,7 @@
                         </div>
 
                         <div class="col-sm-3 col-6">
+                        <a href="https://goo.gl/maps/5MoJdNBcGHZmKgHu9" target="_blank">  
                             <article class="card">
                                 <div class="card_img"></div>
                                 <div class="card_info">
@@ -146,19 +147,19 @@
                                         </path>
                                     </svg>
                                     <h3 class="card_title">Location Map</h3>
-                                        <a href="https://goo.gl/maps/5MoJdNBcGHZmKgHu9" target="_blank">        
+                                              
                                             <button class="card_btn" >
                                                 <svg width="18" height="10" viewBox="0 0 21 12"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M15 6.75H0V5.25H15V0L21 6L15 12V6.75Z" />
                                             </svg>
                                         </button>
-                                    </a>
+                                    
                                 </div>
                             </article>
-
+                            </a>
                         </div>
-                        <div class="col-sm-3 col-6 ">
+                        <div class="col-sm-3 col-6" data-bs-toggle="modal" data-bs-target="#broucherform-modal">
                             <article class="card">
                                 <div class="card_img"></div>
                                 <div class="card_info">
@@ -169,7 +170,7 @@
                                         </path>
                                     </svg>
                                     <h3 class="card_title">Broucher</h3>
-                                    <button class="card_btn" data-bs-toggle="modal" data-bs-target="#broucherform-modal">
+                                    <button class="card_btn" >
                                         <svg width="18" height="10" viewBox="0 0 21 12"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path d="M15 6.75H0V5.25H15V0L21 6L15 12V6.75Z" />
@@ -179,7 +180,7 @@
                             </article>
 
                         </div>
-                        <div class="col-sm-3 col-6">
+                        <div class="col-sm-3 col-6" data-bs-toggle="modal" data-bs-target="#floorplanform-modal">
 
                             <article class="card">
                                 <div class="card_img"></div>
@@ -192,7 +193,7 @@
                                     </svg>
                                     <h3 class="card_title">Floor Plan</h3>
                                     
-                                    <button class="card_btn" data-bs-toggle="modal" data-bs-target="#floorplanform-modal">
+                                    <button class="card_btn" >
                                         <svg width="18" height="10" viewBox="0 0 21 12"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path d="M15 6.75H0V5.25H15V0L21 6L15 12V6.75Z" />

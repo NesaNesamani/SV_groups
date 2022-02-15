@@ -79,6 +79,11 @@
                             <path d="M15 6.75H0V5.25H15V0L21 6L15 12V6.75Z"></path>
                         </svg>
                   </button>
+
+                  <button type="submit" id="contactbtn_load" class="cform-btn">
+                        Loading ...
+                  </button>
+
                     </form>
               </div>
           </div>
