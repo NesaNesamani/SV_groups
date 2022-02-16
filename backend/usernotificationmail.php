@@ -31,8 +31,8 @@ Regarding your inquiry, Please note that the mail is enclosed with Brochure, Flo
 Our Sales Team will contact you within 24hrs. Should there be any questions, please feel free to contact us on +91 - 9845001343 / 9845001560 / 9845001792 (or) write to us svgrandur@svgroups.in. We look forward to hear from you.
 
 <a href='https://svgroups.in/new/svgroups/asset/brochure.pdf' target='_blank'> Broucher </a>
-<a href='https://svgroups.in/new/svgroups/asset/2BHKFILE.pdf' target='_blank'> 2BHK </a>
-<a href='https://svgroups.in/new/svgroups/asset/3BHK.zip' target='_blank'> 3BHK </a>
+<a href='https://svgroups.in/new/svgroups/asset/2BHKVIEWS.pdf' target='_blank'> 2BHK </a>
+<a href='https://svgroups.in/new/svgroups/asset/3BHKVIEWS.pdf' target='_blank'> 3BHK </a>
 <a href='https://svgroups.in/new/svgroups/asset/masterplan.jpg' target='_blank'> Masterplan </a>
 
 Yours sincerely,
