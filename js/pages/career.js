@@ -245,6 +245,8 @@ function hideVerificationloadbtn(){
     formData.append("resume", file,"resume.pdf");
 
     sessionStorage.setItem('verifiedmobilenumber',$('#career_mobilenumber').val());
+    sessionStorage.setItem('name',$('#career_yourname').val());
+    sessionStorage.setItem('email',$('#career_emailaddress').val());
     
     //Button load
     // document.getElementById("cancelmobileverification").disabled = true;

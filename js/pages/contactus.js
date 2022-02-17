@@ -231,6 +231,8 @@ function hideVerificationloadbtn(){
     let fordata = { yourname,mobilenumber,emailaddress,description };
     
     sessionStorage.setItem('verifiedmobilenumber',mobilenumber);
+    sessionStorage.setItem('name',yourname);
+    sessionStorage.setItem('email',emailaddress);
 
      $.ajax({
       url: 'backend/enquirymail.php',
