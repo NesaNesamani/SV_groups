@@ -371,6 +371,9 @@ function CommoncallApicall() {
   sessionStorage.setItem('verifiedmobilenumber',mobilenumber);
   sessionStorage.setItem('name',yourname);
   sessionStorage.setItem('email',emailaddress);
+  setnamevaluesindom();
+  setemailvaluesindom();
+  setphonenumbervaluesindom();
    $.ajax({
     url: 'backend/enquirymail.php',
     data: fordata,
