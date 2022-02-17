@@ -312,6 +312,9 @@ function callBroucherapi() {
   sessionStorage.setItem('verifiedmobilenumber', mobilenumber);
   sessionStorage.setItem('name',yourname);
   sessionStorage.setItem('email',emailaddress);
+  setnamevaluesindom();
+  setemailvaluesindom();
+  setphonenumbervaluesindom();
 
    $.ajax({
       url: 'backend/brouchermail.php',
@@ -364,6 +367,9 @@ function callFloorapi() {
   sessionStorage.setItem('verifiedmobilenumber', floorplan_mobilenumber);
   sessionStorage.setItem('name',floorplan_yourname);
   sessionStorage.setItem('email',floorplan_emailaddress);
+  setnamevaluesindom();
+  setemailvaluesindom();
+  setphonenumbervaluesindom();
 
    $.ajax({
     url: 'backend/floorplanmail.php',
