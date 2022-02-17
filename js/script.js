@@ -369,6 +369,8 @@ function CommoncallApicall() {
   document.getElementById("enquiryform_submitbtn").disabled = true;
   document.getElementById("enquiryform_submitbtn").innerHTML = "Loading ..."; 
   sessionStorage.setItem('verifiedmobilenumber',mobilenumber);
+  sessionStorage.setItem('name',yourname);
+  sessionStorage.setItem('email',emailaddress);
    $.ajax({
     url: 'backend/enquirymail.php',
     data: fordata,

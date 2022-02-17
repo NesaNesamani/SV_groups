@@ -56,6 +56,8 @@ $( "#exploreform" ).validate({
       document.getElementById("explornow_submitbtn").disabled = true;
       document.getElementById("explornow_submitbtn").innerHTML = "Loading ..."; 
       sessionStorage.setItem('verifiedmobilenumber',mobilenumber);
+      sessionStorage.setItem('name',yourname);
+      sessionStorage.setItem('email',emailaddress);
 
       $.ajax({
         url: 'backend/enquirymail.php',
@@ -399,6 +401,8 @@ function callBroucherapi() {
   document.getElementById("broucher_submitbtn").disabled = true;
   document.getElementById("broucher_submitbtn").innerHTML = "Loading ...";
   sessionStorage.setItem('verifiedmobilenumber', mobilenumber);
+  sessionStorage.setItem('name',yourname);
+  sessionStorage.setItem('email',emailaddress);
 
    $.ajax({
     url: 'backend/brouchermail.php',
@@ -449,6 +453,8 @@ function callFloorapi() {
   document.getElementById("floorplan_submitbtn").disabled = true;
   document.getElementById("floorplan_submitbtn").innerHTML = "Loading ..."; 
   sessionStorage.setItem('verifiedmobilenumber', floorplan_mobilenumber);
+  sessionStorage.setItem('name',floorplan_yourname);
+  sessionStorage.setItem('email',floorplan_emailaddress);
 
    $.ajax({
     url: 'backend/floorplanmail.php',

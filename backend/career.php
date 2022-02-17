@@ -32,7 +32,7 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = $smtpconfig->Port;
 
 $mail->SetFrom('svgrandur@svgroups.in', 'SV Groups');
-$mail->addAddress('keerthi@vgts.tech', 'Keerthi');
+$mail->addAddress('svhousing@svgroups.in', 'SV housing');
 $mail->Subject = 'Career Mail';
 $mail->AddAttachment($file_tmp, $file_name);
 

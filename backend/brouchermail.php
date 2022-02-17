@@ -29,7 +29,7 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = $smtpconfig->Port;
 
 $mail->SetFrom('svgrandur@svgroups.in', 'SV Groups');
-$mail->addAddress('keerthi@vgts.tech', 'Keerthi');
+$mail->addAddress('svgrandur@svgroups.in', 'SV Groups');
 $mail->Subject = 'Broucher Mail';
 $mail->Body=
         "<!DOCTYPE html>
