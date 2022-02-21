@@ -183,7 +183,7 @@
                             <div id="collapseFour" class="accordion-collapse collapse"
                                 aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    ‘Project Review Management’ is a monthly review process for ongoing projects. PICs (project-in-charge) prepare a progress report benchmarked against international best practices including project progress, project cost report, project inventory and project risks. Senior management presence at these forums enables quick resolution of project issues and provides impetus for speedy execution. The PRM rates all PPL projects on key parameters of progress, schedule, cost, quality, safety and housekeeping. Outstanding projects receive a commendation every month; best-in-class projects are awarded every quarter.
+                                    ‘Project Review Management’ is a monthly review process for ongoing projects. PICs (project-in-charge) prepare a progress report benchmarked against international best practices including project progress, project cost report, project inventory and project risks. Senior management presence at these forums enables quick resolution of project issues and provides impetus for speedy execution. The PRM rates all projects on key parameters of progress, schedule, cost, quality, safety and housekeeping. Outstanding projects receive a commendation every month; best-in-class projects are awarded every quarter.
                                 </div>
                             </div>
                         </div>
